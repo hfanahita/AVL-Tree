@@ -1,7 +1,10 @@
 from Node import *
+
+
 class AVLTree:
     def __init__(self):
         self.root = None
+
     @staticmethod
     def rotate_right(node):
         if node is None:
@@ -91,8 +94,10 @@ class AVLTree:
                 node.right = AVLTree.rotate_right(node.right)
                 return AVLTree.rotate_left(node)
         return node
+
     def delete(self, key):
         self.root = AVLTree.__delete(self.root, key)
+
     @staticmethod
     def __search(root, key):
         if root is None or root.key == key:
@@ -103,6 +108,7 @@ class AVLTree:
 
     def search(self, key):
         return AVLTree.__search(self.root, key)
+
     @staticmethod
     def min_value_node(node):
         current_node = node
@@ -115,5 +121,3 @@ class AVLTree:
             self.inorder_traversal(self.root.left)
             print(self.root.value),
             self.inorder_traversal(self.root.right)
-
-
